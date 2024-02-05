@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/style.css">
+        <title> {{.Title}}</title>
+    </head>
+    <body>
+        <div class="bg-image"></div>
+        <div class="box">
+            <p> 
+                <div class = "h1"> taskmanager </div>
+            </p>
+                {{if .Rows}}
+                    <table>
+                        <thead><th>Id</th><th>Objective</th><th>Deadline</th></thead>
+                        {{range .Rows}}
+                        <tr>
+                            <td> {{.Id}}        </td>
+                            <td> {{.Objective}} </td>
+                            <td> {{.Deadline}}  </td>
+                        </tr>
+                        {{end}}
+                    </table>
+                {{end}}
+                <div class = "h2"> Tasks avaliable: {{.CountTasks}}</h2>            
+            <br>
+            <form method ="POST" action="postform">
+                <input class ="button" type="submit" value="Add">
+                <input class ="button" type="submit" value="Delete">
+            </form>
+            
+            <!-- <form method="POST" action="postform">
+                <input class="line" type="text" name="inputData">
+                <br> <br>
+                <input class ="button" type="submit" value="Compress">
+            </form>
+            {{if .Line}}
+                <p> Your small link {{.HostName}}/{{.Line}}</p>
+            {{end}} -->
+        </div>
+    </body>
+</html>

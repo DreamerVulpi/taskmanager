@@ -1,0 +1,63 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+
+.bg-image {
+    background-image: url("../../src/background.jpg");
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.box {
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.6);
+    color: white;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.h1 {
+    color:rgb(255, 255, 255);
+    font-size: 64pt;
+}
+
+.h2 {
+    color:rgb(107, 107, 107);
+    font-size: 24pt;
+}
+
+input.line {
+    background-color: rgb(29, 29, 29);
+    color: rgb(255, 255, 255);
+    border: 0;
+    border-radius: 16px;
+    font-size: 32pt;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+input.button {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16pt;
+    border: 1pt;
+    border-radius: 16px;
+    background-color: rgb(29, 29, 29);
+}
