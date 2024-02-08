@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/style.css">
+        <title> {{.Title}}</title>
+    </head>
+    <body>
+        <div class="bg-image"></div>
+        <div class="box">
+            <p> 
+                <div class = "h1"> taskmanager </div>
+                <br>
+                <form method ="POST" action="sign_in">
+                    <div class = "h2"> Welcome, {{.Username}} </div>
+                    {{if .Rows}}
+                    <table method ="PUT" action="editnote">
+                        <thead><th>Id</th><th>Objective</th><th>Deadline</th></thead>
+                        {{range .Rows}}
+                        <tr>
+                            <td> {{.Id}}        </td>
+                            <td> <div contenteditable> {{.Objective}} </div></td>
+                            <td> <div contenteditable> {{.Deadline}} </div> </td>
+                        </tr>
+                        {{end}}
+                    </table>
+                    <div class = "h2"> Tasks avaliable: {{.CountTasks}}</h2>
+                    {{end}}
+                    <!-- <!-- <table>
+                    <tr><td><div contenteditable>I'm editable</div></td><td><div contenteditable>I'm also editable</div></td></tr>
+                    <tr><td>I'm not editable</td></tr>
+                    </table> -->
+
+                            
+                    <!-- <br>
+                    <form method ="POST" action="postform">
+                    <input class ="button" type="submit" value="Add">
+                    <input class ="button" type="submit" value="Delete">
+                    </form>  -->
+                </form>
+            </p>
+        </div>
+    </body>
+</html>

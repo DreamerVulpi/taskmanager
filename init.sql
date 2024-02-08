@@ -1,0 +1,32 @@
+CREATE DATABASE taskmanager;
+
+CREATE TABLE users (
+	id				SERIAL 			NOT NULL UNIQUE,
+	username 		VARCHAR(255) 	NOT NULL,
+	password_hash 	VARCHAR(255) 	NOT NULL
+);
+
+CREATE TABLE tasks (
+	id			SERIAL 			NOT NULL UNIQUE,
+	title 		VARCHAR(255) 	NOT NULL,
+	descripton 	VARCHAR(255) 	NOT NULL,
+	done 		BOOLEAN 		NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE lists (
+	id			SERIAL			NOT NULL UNIQUE,
+	title		VARCHAR(255)	NOT NULL,
+	description	VARCHAR(255)	NOT NULL
+);
+
+CREATE TABLE lists_users (
+	id			SERIAL			NOT NULL UNIQUE,
+	user_id	INT REFERENCES users (id) ON DELETE CASCADE NOT NULL,
+	list_id INT REFERENCES lists (id) ON DELETE CASCADE NOT NULL
+);
+
+CREATE TABLE lists_tasks (
+	id SERIAL NOT NULL UNIQUE,
+	task_id INT REFERENCES tasks (id) ON DELETE CASCADE NOT NULL,
+	list_id INT REFERENCES lists (id) ON DELETE CASCADE NOT NULL
+);

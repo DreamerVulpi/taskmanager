@@ -1,0 +1,1 @@
+DROP TABLE lists_tasks, lists_users, lists, tasks, users

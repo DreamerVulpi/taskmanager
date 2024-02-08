@@ -10,21 +10,16 @@
         <div class="box">
             <p> 
                 <div class = "h1"> taskmanager </div>
-            
+                <div class = "h2"> Registration</div>
                 <br>
-                <form method ="POST" action="sign_in">
+                <form method ="POST" action="sign_out" target="/login">
                     <div class = "h2"> Username </div>
                     <input class ="line" type="text" name="inputUsername">
                     <div class = "h2"> Password </div>
-                    <input class ="line" type="password" name="inputPassword">
+                    <input class ="line" type="text" name="inputPassword">
                     <br>
-                    <div class = "h2"> Want to create an account? <a href="/registration"> Sign out </link></div>
                     <br>
-                    <input class ="button" type="submit" value="Sign in">
-                    <br> <br>
-                    {{if .Line}}
-                        <div class = "h2"> Autorization is failed </p>
-                    {{end}}
+                    <input class ="button" type="submit" value="Registrate">
                 </form>
             </p>
         </div>
