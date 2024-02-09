@@ -28,7 +28,7 @@ type AppConfig struct {
 	TypeFile string
 }
 
-func LoadConfig(config *AppConfig) {
+func Load(config *AppConfig) {
 	v := viper.New()
 	v.SetConfigName(config.NameFile)
 	v.SetConfigType(config.TypeFile)
