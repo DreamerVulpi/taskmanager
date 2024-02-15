@@ -1,9 +1,7 @@
-CREATE DATABASE taskmanager;
-
 CREATE TABLE users (
 	id				SERIAL 			NOT NULL UNIQUE,
 	username 		VARCHAR(255) 	NOT NULL,
-	password_hash 	VARCHAR(255) 	NOT NULL
+	password_hash 	BYTEA 			NOT NULL
 );
 
 CREATE TABLE tasks (

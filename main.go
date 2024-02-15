@@ -19,8 +19,10 @@ func main() {
 	slog.Info(conf.DB.Driver)
 
 	params := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=%s", conf.DB.User, conf.DB.Password, conf.DB.DBname, conf.DB.Sslmode)
-	conn := db.ConnectToDB(params, conf.DB.Driver)
-
+	conn, err := db.ConnectToDB(params, conf.DB.Driver)
+	if err != nil {
+		slog.Warn(err.Error())
+	}
 	host := server.Init()
 	server.Roots(conn, host)
 	server.Run(host, conf.S.Port)

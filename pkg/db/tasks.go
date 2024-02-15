@@ -13,14 +13,6 @@ type Task struct {
 	Done        bool
 }
 
-func CreateUser(conn *sql.DB, user User) error {
-	slog.Info(user.Username)
-	slog.Info(user.Password_hash)
-	// TODO: Create method hashing password using JWT-TOKEN
-	_, err := conn.Exec("INSERT INTO users (username, password_hash) VALUES ($1, $2)", user.Username, user.Password_hash)
-	return err
-}
-
 func CreateTask(conn *sql.DB, task Task) error {
 	slog.Info(fmt.Sprintf("$1, $2, $3, $4", task.Title, task.Description, task.Done))
 	_, err := conn.Exec("INSERT INTO tasks (title, description) VALUES ($1, $2)", task.Title, task.Description)
@@ -47,6 +39,16 @@ func GetTasks(conn *sql.DB, list_id int, user_id int) ([]Task, error) {
 		tsks = append(tsks, note)
 	}
 	return tsks, err
+}
+
+func GetTask(conn *sql.DB, user_id int, list_id int) (Task, error) {
+	row := conn.QueryRow("SELECT task.id, task.title, task.description, done FROM tasks task INNER JOIN lists_tasks list_task ON list_task.task_id = task.id INNER JOIN lists_users lu ON lu.list_id = list_task.list_id WHERE list_task.list_id = $1 AND lu.user_id = $2", list_id, user_id)
+	task := Task{}
+	err := row.Scan(&task.Id, &task.Title, &task.Description)
+	if err != nil {
+		return Task{}, err
+	}
+	return task, err
 }
 
 func DeleteTask(conn *sql.DB, task_id int, user_id int) error {

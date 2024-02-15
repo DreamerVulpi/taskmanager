@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
         <title> {{.Title}}</title>
     </head>
     <body>
@@ -12,13 +12,13 @@
                 <div class = "h1"> taskmanager </div>
             
                 <br>
-                <form method ="POST" action="sign_in">
+                <form method ="POST" action="log_in">
                     <div class = "h2"> Username </div>
                     <input class ="line" type="text" name="inputUsername">
                     <div class = "h2"> Password </div>
                     <input class ="line" type="password" name="inputPassword">
                     <br>
-                    <div class = "h2"> Want to create an account? <a href="/registration"> Sign out </link></div>
+                    <div class = "h2"> Want to create an account? <a href="/auth/registration"> Sign out </link></div>
                     <br>
                     <input class ="button" type="submit" value="Sign in">
                     <br> <br>
